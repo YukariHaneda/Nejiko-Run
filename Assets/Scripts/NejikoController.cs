@@ -32,14 +32,14 @@ public class NejikoController : MonoBehaviour
                 moveDirection.z = 0;
             }
 
-            transform.Rotate(0,Input.GetAxis("Horizontal") * 3,0);
+            transform.Rotate(0,Input.GetAxis("Horizontal") * 3, 0);
 
             if (Input.GetButton("Jump")) {
                 moveDirection.y = speedJump;
-                animator.SetTrigger("Jump");
+                animator.SetTrigger("jump");
             }
         }
-        
+
         //重力分の力を毎フレーム追加
         moveDirection.y -= gravity * Time.deltaTime;
 
