@@ -19,9 +19,12 @@ public class SimpleFollow : MonoBehaviour
     void LateUpdate()//Updateが終わったあとに動くのがLateUpdate関数
     {
         transform.position = Vector3.Lerp (
-            transform.position,
-            target.transform.position -diff,
-            Time.deltaTime * followSpeed //ねじこが動いてちょっと後に動く。このちょいずれがいらなければねじこの子要素にメインカメラを持ってくる。
+            transform.position,//今いるカメラのポジション
+            target.transform.position -diff,//今のねじこに対するカメラのポジション
+            Time.deltaTime * followSpeed //0~1の範囲になる。
+            //ねじこが動いてちょっと後に動く。このちょいずれがいらなければねじこの子要素にメインカメラを持ってくる。
+            //第3引数が0.5だった場合、第1引数と第2引数の間のポジションを返す
+            //同じ50%でも距離が遠いと最初は速くて、ゴールに近づいたらゆっくりになる。
         );
     }
 }
