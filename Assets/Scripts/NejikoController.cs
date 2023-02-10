@@ -19,7 +19,6 @@ public class NejikoController : MonoBehaviour
         //必要なコンポーネントを自動取得
             controller = GetComponent<CharacterController>();
             animator = GetComponent<Animator>();
-
     }
 
     // Update is called once per frame
@@ -40,6 +39,7 @@ public class NejikoController : MonoBehaviour
                 animator.SetTrigger("Jump");
             }
         }
+        
         //重力分の力を毎フレーム追加
         moveDirection.y -= gravity * Time.deltaTime;
 
