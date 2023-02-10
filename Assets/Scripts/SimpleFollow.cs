@@ -12,16 +12,16 @@ public class SimpleFollow : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        diff = target.transform.position - transform.position;
+        diff = target.transform.position - transform.position; //メインカメラからねじこへのベクトル
     }
 
     // Update is called once per frame
-    void LateUpdate()
+    void LateUpdate()//Updateが終わったあとに動くのがLateUpdate関数
     {
         transform.position = Vector3.Lerp (
             transform.position,
             target.transform.position -diff,
-            Time.deltaTime * followSpeed
+            Time.deltaTime * followSpeed //ねじこが動いてちょっと後に動く。このちょいずれがいらなければねじこの子要素にメインカメラを持ってくる。
         );
     }
 }
